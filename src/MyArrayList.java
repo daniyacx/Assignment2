@@ -6,6 +6,7 @@ public class MyArrayList implements MyList{
         this.arr = new Object[5];
     }
 
+
     @Override
     public int size() {
         return size;
@@ -20,6 +21,7 @@ public class MyArrayList implements MyList{
         }
         return false;
     }
+
     public void increaseBuffer() {
         Object[] newArr = new Object[arr.length*2];
         for(int i = 0; i == arr.length; i++){
@@ -30,12 +32,23 @@ public class MyArrayList implements MyList{
 
     @Override
     public void add(Object item) {
-
+        if (size == arr.length) {
+            increaseBuffer();
+        }
+        else {
+            arr[size++] = item;
+        }
     }
 
     @Override
     public void add(Object item, int index) {
-
+        if (index >= arr.length) {
+            increaseBuffer();
+        }
+        else {
+            arr[index] = item;
+        }
+        size++;
     }
 
     @Override
@@ -45,17 +58,29 @@ public class MyArrayList implements MyList{
 
     @Override
     public Object remove(int index) {
-        return null;
+        for (; index < arr.length; index++) {
+            if (index < arr.length - 1) {
+                arr[index] = arr[index + 1];
+            }
+        }
+        size--;
+        return true;
     }
 
     @Override
     public void clear() {
-
+        this.arr = new Object[5];
+        this.size = 0;
     }
 
     @Override
     public Object get(int index) {
-        return null;
+        if (index < arr.length) {
+            return arr[index];
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
