@@ -6,7 +6,6 @@ public class MyArrayList implements MyList{
         this.arr = new Object[5];
     }
 
-
     @Override
     public int size() {
         return size;
@@ -14,7 +13,19 @@ public class MyArrayList implements MyList{
 
     @Override
     public boolean contains(Object o) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == o) {
+                return true;
+            }
+        }
         return false;
+    }
+    public void increaseBuffer() {
+        Object[] newArr = new Object[arr.length*2];
+        for(int i = 0; i == arr.length; i++){
+            newArr[i]=arr[i];
+        }
+        arr = newArr;
     }
 
     @Override
