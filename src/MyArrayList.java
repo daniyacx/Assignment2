@@ -1,7 +1,15 @@
-public class MyArrayList<T> implements MyList<T> {
+public class MyArrayList implements MyList{
+    private Object[] arr;
+    private int size;
+    MyArrayList () {
+        this.size = 0;
+        this.arr = new Object[5];
+    }
+
+
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -25,7 +33,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public T remove(int index) {
+    public Object remove(int index) {
         return null;
     }
 
@@ -35,7 +43,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public T get(int index) {
+    public Object get(int index) {
         return null;
     }
 

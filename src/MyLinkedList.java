@@ -1,4 +1,4 @@
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList implements MyList{
     @Override
     public int size() {
         return 0;
@@ -25,7 +25,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public T remove(int index) {
+    public Object remove(int index) {
         return null;
     }
 
@@ -35,7 +35,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public T get(int index) {
+    public Object get(int index) {
         return null;
     }
 
