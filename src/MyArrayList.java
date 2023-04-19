@@ -100,9 +100,13 @@ public class MyArrayList implements MyList{
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i].toString().equals(o.toString())) {
+                return i;
+            }
+        }
+        return 1;
     }
-
     @Override
     public void sort() {
 
