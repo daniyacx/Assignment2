@@ -109,6 +109,14 @@ public class MyArrayList implements MyList{
     }
     @Override
     public void sort() {
-
+        for (int i = 0; i < size; i++) {
+            for (int j = i; j < size; j++) {
+                if ((int) arr[j] < (int) arr[i]) {
+                    Object box = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = box;
+                }
+            }
+        }
     }
 }
