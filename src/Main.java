@@ -1,15 +1,19 @@
 public class Main {
     public static void main(String[] args) {
         MyArrayList myArrayList = new MyArrayList();
-        myArrayList.add(90);
-        myArrayList.add(80);
-        myArrayList.add(70);
-        myArrayList.add("dog");
-        System.out.println(myArrayList.size());
-        System.out.println(myArrayList.get(0));
-        System.out.println(myArrayList.get(1));
-        System.out.println(myArrayList.get(2));
-        System.out.println(myArrayList.get(3));
-        System.out.println(myArrayList.remove("dog"));
+        myArrayList.add(10);
+        myArrayList.add(5);
+        myArrayList.add(20);
+        myArrayList.add(15);
+        myArrayList.add(25);
+        System.out.println("Before sorting:");
+        for (int i = 0; i < myArrayList.size(); i++) {
+            System.out.println(myArrayList.get(i));
+        }
+        myArrayList.sort();
+        System.out.println("After sorting:");
+        for (int i = 0; i < myArrayList.size(); i++) {
+            System.out.println(myArrayList.get(i));
+        }
     }
 }
