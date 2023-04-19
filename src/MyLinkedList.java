@@ -1,4 +1,4 @@
-public class MyArrayList<T> implements MyList<T> {
+public class MyLinkedList<T> implements MyList<T> {
     @Override
     public int size() {
         return 0;
