@@ -1,10 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        MyArrayList ArrayList = new MyArrayList();
-        ArrayList.add(2);
-        ArrayList.add(3);
-        ArrayList.add(4, 2);
-        System.out.println(ArrayList.size());
-        System.out.println(ArrayList.get(2));
+        MyArrayList myArrayList = new MyArrayList();
+        myArrayList.add(90);
+        myArrayList.add(80);
+        myArrayList.add(70);
+        myArrayList.add("dog");
+        System.out.println(myArrayList.size());
+        System.out.println(myArrayList.get(0));
+        System.out.println(myArrayList.get(1));
+        System.out.println(myArrayList.get(2));
+        System.out.println(myArrayList.get(3));
+        System.out.println(myArrayList.remove("dog"));
     }
 }

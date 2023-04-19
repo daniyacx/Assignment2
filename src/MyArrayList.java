@@ -53,12 +53,18 @@ public class MyArrayList implements MyList{
 
     @Override
     public boolean remove(Object item) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].toString().equals(item.toString())) {
+                Object removed = remove(i);
+                System.out.println(removed);
+                return true;
+            }
+        }
         return false;
     }
-
     @Override
     public Object remove(int index) {
-        for (; index < arr.length; index++) {
+        for (; index < size; index++) {
             if (index < arr.length - 1) {
                 arr[index] = arr[index + 1];
             }
@@ -66,7 +72,6 @@ public class MyArrayList implements MyList{
         size--;
         return true;
     }
-
     @Override
     public void clear() {
         this.arr = new Object[5];
