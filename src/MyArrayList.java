@@ -1,24 +1,26 @@
-public class MyArrayList implements MyList{
+public class MyArrayList implements MyList {
     private Object[] arr;
     private int size;
-    MyArrayList () {
+
+    MyArrayList() {
         this.size = 0;
         this.arr = new Object[5];
     }
 
-/**
-     @size returns size of the array
-     @return size;
- **/
+    /**
+     * @return size;
+     * @size returns size of the array
+     **/
     @Override
     public int size() {
         return size;
     }
-/**
-      @contains checks whether there is an element in the array or not
-      @param o element that we need
-      @return false if not contains, true if contains
-**/
+
+    /**
+     * @param o element that we need
+     * @return false if not contains, true if contains
+     * @contains checks whether there is an element in the array or not
+     **/
     @Override
     public boolean contains(Object o) {
         for (int i = 0; i < arr.length; i++) {
@@ -28,36 +30,37 @@ public class MyArrayList implements MyList{
         }
         return false;
     }
-/**
 
-      @increaseBuffer increases the size of the array by doubling it
-**/
+    /**
+     * @increaseBuffer increases the size of the array by doubling it
+     **/
     public void increaseBuffer() {
-        Object[] newArr = new Object[arr.length*2];
-        for(int i = 0; i == arr.length; i++){
-            newArr[i]=arr[i];
+        Object[] newArr = new Object[arr.length * 2];
+        for (int i = 0; i == arr.length; i++) {
+            newArr[i] = arr[i];
         }
         arr = newArr;
     }
-/**
-     @add() adds one element to the array
-     @param item element that we add
-**/
+
+    /**
+     * @param item element that we add
+     * @add() adds one element to the array
+     **/
     @Override
     public void add(Object item) {
         if (size == arr.length) {
             increaseBuffer();
-        }
-        else {
+        } else {
             arr[size++] = item;
         }
     }
-/**
-     @add() adds an element to the array at the specified index
-     @param item the element to add
-     @param index the index at which to add the element
-     @throws IndexOutOfBoundsException if the index is invalid
-**/
+
+    /**
+     * @param item  the element to add
+     * @param index the index at which to add the element
+     * @throws IndexOutOfBoundsException if the index is invalid
+     * @add() adds an element to the array at the specified index
+     **/
     @Override
     public void add(Object item, int index) {
         if (index < 0 || index >= size) {
@@ -74,10 +77,10 @@ public class MyArrayList implements MyList{
     }
 
     /**
-     @remove()  removes the first occurrence of the specified element from the list, if it is present
-     @param item the element to be removed
-     @return true if the element was successfully removed, false otherwise
-**/
+     * @param item the element to be removed
+     * @return true if the element was successfully removed, false otherwise
+     * @remove() removes the first occurrence of the specified element from the list, if it is present
+     **/
     @Override
     public boolean remove(Object item) {
         for (int i = 0; i < arr.length; i++) {
@@ -89,13 +92,13 @@ public class MyArrayList implements MyList{
         }
         return false;
     }
-/**
 
-     @remove removes the element at the specified index and returns it
-     @param index the index of the element to be removed
-     @return the removed element
-     @throws IndexOutOfBoundsException if the index is out of range
-**/
+    /**
+     * @param index the index of the element to be removed
+     * @return the removed element
+     * @throws IndexOutOfBoundsException if the index is out of range
+     * @remove removes the element at the specified index and returns it
+     **/
     @Override
     public Object remove(int index) {
         if (index < 0 || index >= size) {
@@ -109,22 +112,23 @@ public class MyArrayList implements MyList{
         size--;
         return "Successfully removed element";
     }
-/**
 
-     @clear creates new clear array
-**/
+    /**
+     * @clear creates new clear array
+     **/
     @Override
     public void clear() {
         this.arr = new Object[5];
         this.size = 0;
     }
-/**
 
+    /**
      * returns the element at the specified position in this list
+     *
      * @param index the index of the element to return
      * @return the element at the specified position in this list
      * @throws IndexOutOfBoundsException if the index is out of range
-**/
+     **/
     @Override
     public Object get(int index) {
         // Check if the index is valid
@@ -141,11 +145,11 @@ public class MyArrayList implements MyList{
     }
 
     /**
-     @indexOf returns the index of the first occurrence of the specified element in this list
-     @param o the element to search for
-     @return the index of the first occurrence of the specified element in this list,
-     or -1 if this list doesnt contain the element
-**/
+     * @param o the element to search for
+     * @return the index of the first occurrence of the specified element in this list,
+     * or -1 if this list doesnt contain the element
+     * @indexOf returns the index of the first occurrence of the specified element in this list
+     **/
     @Override
     public int indexOf(Object o) {
         for (int i = 0; i < arr.length; i++) {
@@ -155,12 +159,12 @@ public class MyArrayList implements MyList{
         }
         return 1;
     }
-/**
 
-     @lastIndexOf returns the last index of the specified element in the list
-     @param o the element to search for
-     @return the last index of the element in the list, or -1 if not found
- **/
+    /**
+     * @param o the element to search for
+     * @return the last index of the element in the list, or -1 if not found
+     * @lastIndexOf returns the last index of the specified element in the list
+     **/
     @Override
     public int lastIndexOf(Object o) {
         for (int i = arr.length - 1; i >= 0; i--) {
@@ -170,9 +174,10 @@ public class MyArrayList implements MyList{
         }
         return 1;
     }
-/**
-     @sort sorts the elements in the list in ascending order
-**/
+
+    /**
+     * @sort sorts the elements in the list in ascending order
+     **/
     @Override
     public void sort() {
         for (int i = 0; i < size; i++) {
@@ -181,6 +186,20 @@ public class MyArrayList implements MyList{
                     Object box = arr[i];
                     arr[i] = arr[j];
                     arr[j] = box;
+                }
+            }
+        }
+    }
+
+    public void sortSubList(int index1, int index2) {
+        for (int i = index1; i < index2; i++) {
+            for (int j = i; j < index2; j++) {
+                if (arr[j] < arr[i]) {
+                    if (arr[j] < arr[i]) {
+                        int box = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = box;
+                    }
                 }
             }
         }
